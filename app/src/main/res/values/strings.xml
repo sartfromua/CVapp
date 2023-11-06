@@ -5,7 +5,8 @@
     <string name="previous">Previous</string>
     <string name="app_name">CVapp</string>
     <string name="emailInfo">Email:\n<u>whiskers@purrmail.com</u></string>
-    <string name="email">whiskers@purrmail.com</string>
+    <string name="emailRecipient">whiskers@purrmail.com</string>
+    <string name="emailSubject">Invitation to participate in the interview</string>
     <string name="phoneInfo">Phone:\n<u>(555) MEOW-123</u></string>
     <string name="phoneNumber">+380663944780</string>
     <string name="shortInfo">I\'m a motivated and enthusiastic individual with a strong interest in the logistics industry.

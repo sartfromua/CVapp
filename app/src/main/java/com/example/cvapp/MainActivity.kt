@@ -31,16 +31,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:${number}")))
         }
         email.setOnClickListener {
-            val mail = getString(R.string.email)
-            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:${mail}")
-                    .buildUpon()
-                    .appendQueryParameter("Subject", "saf").
-                    appendQueryParameter("mailto", mail)
-                        .build()
-//                putExtra(Intent.EXTRA_SUBJECT, "Invitation to participate in the interview")
+            val mail = getString(R.string.emailRecipient)
+            val emailsubject = getString(R.string.emailSubject)
+
+            val emailIntent = Intent(Intent.ACTION_SENDTO)
+            emailIntent.setData(Uri.parse("mailto:"))
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(mail))
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailsubject)
+            try {
+                startActivity(Intent.createChooser(emailIntent, "Choose Email Client..."))
+            } catch (e: Exception) {
+                Log.e("XXXXX", e.message.toString())
             }
-            startActivity(Intent.createChooser(intent, "Choose Email Client..."))
         }
 
     }
